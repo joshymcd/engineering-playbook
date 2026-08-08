@@ -9,6 +9,22 @@ Start with one application package and one deployable unit. Add workspaces, pack
 
 Small does not mean unstructured. Domain, transport, persistence, and UI boundaries should be visible from the first vertical slice.
 
+## Do not solve hypothetical problems
+
+Implement requirements that exist now. Do not add extension points, compatibility paths, fallback modes, persisted state, or deployment options for futures that are neither specified nor demonstrated by current code.
+
+This matters most in proofs of concept and initial releases. Their job is to test the product and its riskiest assumptions, not to approximate the architecture of a mature system. Prefer a change later, when the constraint is understood, over complexity now based on a guess.
+
+Security, data integrity, and explicitly specified operational requirements are not speculative. Keep the smallest mechanism that satisfies them.
+
+## Make abstractions earn their place
+
+An abstraction should remove meaningful repetition, enforce a real invariant, or represent a boundary the application already has. A helper used once, an interface with one implementation, or a generic wrapper around a direct library call usually adds navigation and vocabulary without reducing complexity.
+
+Keep code local until the repeated shape and its stable contract are visible. Some duplication is cheaper than the wrong abstraction.
+
+Composition roots are a useful exception. A thin providers component may remain explicit even when it currently composes one provider, because it gives application-wide context wiring one intentional home without hiding domain behavior.
+
 ## Build vertical slices
 
 A useful slice crosses the entire system:

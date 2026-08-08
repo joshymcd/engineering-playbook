@@ -5,6 +5,10 @@ description: Patterns repeatedly found to create correctness, security, or maint
 
 ## Architecture
 
+- Speculative extension points, compatibility paths, or deployment modes without a current requirement.
+- POCs carrying production-scale architecture for problems they are not testing.
+- One-use helpers, interfaces, wrappers, or generic components that only rename direct code.
+- Persisted fields or state transitions that are written but never read.
 - Multiple QueryClients serving one application cache.
 - Server functions, raw database calls, schemas, algorithms, and collections combined in one large module.
 - Server functions embedded throughout route components.
