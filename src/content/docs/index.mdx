@@ -1,0 +1,47 @@
+---
+title: Engineering Playbook
+description: The default conventions for designing, building, testing, and shipping Josh McDonald applications.
+template: splash
+hero:
+  tagline: Practical defaults for software that stays understandable as it grows.
+  actions:
+    - text: Read the principles
+      link: /engineering-playbook/foundations/principles/
+      icon: right-arrow
+    - text: Start a project
+      link: /engineering-playbook/reference/new-project-checklist/
+      icon: rocket
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components'
+
+This playbook records the patterns that recur across Josh's applications. It is opinionated where repetition has produced a clear preference and explicit where a decision must remain project-specific.
+
+<CardGrid stagger>
+	<Card title="Architecture with boundaries" icon="seti:folder">
+		Keep domain rules independent, server functions thin, persistence
+		server-only, and client data normalized.
+	</Card>
+	<Card title="TanStack by default" icon="puzzle">
+		Use Start, Router, Query, Form, and DB where each tool earns its place
+		rather than as a checklist.
+	</Card>
+	<Card title="Deliberate UI" icon="star">
+		Build responsive interfaces from semantic tokens, local shadcn source,
+		native forms, and accessible interaction patterns.
+	</Card>
+	<Card title="Ship safely" icon="approve-check">
+		Validate with strict types and tests, deploy through protected SST stages,
+		and keep secrets out of source and logs.
+	</Card>
+</CardGrid>
+
+## How to use this playbook
+
+- Treat **defaults** as the starting point for a new application.
+- Treat **decision rules** as prompts to choose deliberately rather than copy blindly.
+- Record meaningful exceptions in the repository README or an architecture decision record.
+- Keep repository-specific `AGENTS.md` instructions more authoritative than this general guide.
+
+> This is a living standard. Update it when repeated practice proves a better default.
